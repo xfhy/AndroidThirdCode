@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.xfhy.learnkotlin.R
+import com.xfhy.learnkotlin.common.startActivity
 import com.xfhy.learnkotlin.common.toast
 import kotlinx.android.synthetic.main.activity_material_home.*
 
@@ -16,6 +17,9 @@ class MaterialHomeActivity : AppCompatActivity() {
 
         //让Toolbar保持与ActionBar的外观一致
         setSupportActionBar(toolbar)
+        btn_go_drawerlayout.setOnClickListener {
+            startActivity<DrawerLayoutActivity>()
+        }
     }
 
     //加载toolbar.xml菜单文件

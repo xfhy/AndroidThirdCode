@@ -15,6 +15,11 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-
+    <Button
+        android:id="@+id/btn_go_drawerlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DrawerLayout 抽屉"
+        android:textAllCaps="false" />
 
 </LinearLayout>
