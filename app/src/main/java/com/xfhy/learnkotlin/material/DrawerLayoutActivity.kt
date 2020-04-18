@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.xfhy.learnkotlin.R
 import com.xfhy.learnkotlin.common.toast
+import com.xfhy.learnkotlin.material.adapter.Fruit
+import com.xfhy.learnkotlin.material.adapter.FruitAdapter
 import kotlinx.android.synthetic.main.activity_drawer_layout.*
 
 /**
@@ -39,6 +43,23 @@ class DrawerLayoutActivity : AppCompatActivity() {
                 toast("取消")
             }.show()
         }
+
+        rvFruits.layoutManager = GridLayoutManager(this,2)
+        rvFruits.adapter = FruitAdapter(this, getData())
+    }
+
+    private fun getData(): List<Fruit> {
+        return listOf(
+            Fruit("Apple", R.drawable.apple),
+            Fruit("Banana", R.drawable.banana),
+            Fruit("Watermelon", R.drawable.watermelon),
+            Fruit("Pear", R.drawable.pear),
+            Fruit("Grape", R.drawable.grape),
+            Fruit("Pineapple", R.drawable.pineapple),
+            Fruit("Strawberry", R.drawable.strawberry),
+            Fruit("Cherry", R.drawable.cherry),
+            Fruit("Mango", R.drawable.mango)
+        )
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

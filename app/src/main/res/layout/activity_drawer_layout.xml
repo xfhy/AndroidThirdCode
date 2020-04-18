@@ -19,6 +19,13 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFruits"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_fruit"
+            android:layout_marginTop="?attr/actionBarSize" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabTest"
             android:layout_width="wrap_content"
