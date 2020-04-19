@@ -2,6 +2,7 @@ package com.xfhy.learnkotlin.jetpack.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 /**
@@ -18,6 +19,14 @@ class JetpackViewModel(countReserved: Int) : ViewModel() {
     //数据变化时 会 通知观察者
     private val _counter = MutableLiveData<Int>()
 
+    private val userLiveData = MutableLiveData<User>()
+
+    //这里假设: 需求是只需要用户名,所以不需要把User实例全部暴露出去
+    //利用Transformations.map转换一下
+    val userName: LiveData<String> = Transformations.map(userLiveData) { user ->
+        "${user.firstName} ${user.lastName}"
+    }
+
     init {
         _counter.value = countReserved
     }
@@ -30,5 +39,6 @@ class JetpackViewModel(countReserved: Int) : ViewModel() {
     fun clear() {
         _counter.value = 0
     }
+
 
 }
