@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.observe
 import com.xfhy.learnkotlin.R
 import com.xfhy.learnkotlin.jetpack.lifecycles.MyObserver
 import com.xfhy.learnkotlin.jetpack.viewmodel.JetpackViewModel
@@ -30,28 +32,27 @@ class JetpackActivity : AppCompatActivity() {
         jetpackViewModel = ViewModelProviders.of(this, JetpackViewModelFactory(countReserved))
             .get(JetpackViewModel::class.java)
         btnPlusOne.setOnClickListener {
-            jetpackViewModel.counter++
-            refreshCounter()
+            jetpackViewModel.plusOne()
         }
-
 
         btnClear.setOnClickListener {
-            jetpackViewModel.counter = 0
-            refreshCounter()
+            jetpackViewModel.clear()
         }
 
-        refreshCounter()
+        //观察LiveData
+        jetpackViewModel.counter.observe(this, Observer<Int> { count ->
+            tvInfoText.text = count.toString()
+        })
+        /*jetpackViewModel.counter.observe(this) { count ->
+            tvInfoText.text = count.toString()
+        }*/
     }
 
     override fun onPause() {
         super.onPause()
         sp.edit().apply {
-            putInt("count_reserved", jetpackViewModel.counter)
+            putInt("count_reserved", jetpackViewModel.counter.value ?: 0)
             apply()
         }
-    }
-
-    private fun refreshCounter() {
-        tvInfoText.text = jetpackViewModel.counter.toString()
     }
 }
