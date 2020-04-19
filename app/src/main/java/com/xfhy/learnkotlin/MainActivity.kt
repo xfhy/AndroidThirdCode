@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.xfhy.learnkotlin.common.request
 import com.xfhy.learnkotlin.common.startActivity
+import com.xfhy.learnkotlin.jetpack.JetpackActivity
 import com.xfhy.learnkotlin.material.MaterialHomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
@@ -25,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
         tvGoMaterial.setOnClickListener {
             startActivity<MaterialHomeActivity>()
+        }
+        tvGoJetpack.setOnClickListener {
+            startActivity<JetpackActivity>()
         }
     }
 

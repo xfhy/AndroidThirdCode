@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/noActionBarStyle"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".jetpack.JetpackActivity"></activity>
         <activity
             android:name=".material.CollapsingToolbarLayoutActivity"
             android:theme="@style/FruitActivityTheme" />

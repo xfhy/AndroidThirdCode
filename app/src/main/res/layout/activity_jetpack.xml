@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".jetpack.JetpackActivity">
+
+    <TextView
+        android:id="@+id/tvInfoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        tools:text="0" />
+
+    <Button
+        android:id="@+id/btnPlusOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plus One"
+        android:textAllCaps="false" />
+
+</LinearLayout>
