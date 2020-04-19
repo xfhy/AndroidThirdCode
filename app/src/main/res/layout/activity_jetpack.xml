@@ -29,4 +29,12 @@
         android:text="Clear"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btnGetUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get User (switchMap)"
+        android:textAllCaps="false" />
+
+
 </LinearLayout>

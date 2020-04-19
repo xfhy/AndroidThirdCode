@@ -46,6 +46,16 @@ class JetpackActivity : AppCompatActivity() {
         /*jetpackViewModel.counter.observe(this) { count ->
             tvInfoText.text = count.toString()
         }*/
+
+        //---------测试switchMap----------
+        btnGetUser.setOnClickListener {
+            val userId = (0..10000).random().toString()
+            jetpackViewModel.getUser(userId)
+        }
+        jetpackViewModel.user.observe(this) { user ->
+            tvInfoText.text = user.firstName
+        }
+
     }
 
     override fun onPause() {
