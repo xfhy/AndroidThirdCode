@@ -9,9 +9,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
 import com.xfhy.learnkotlin.R
 import com.xfhy.learnkotlin.jetpack.lifecycles.MyObserver
+import com.xfhy.learnkotlin.jetpack.viewmodel.AppDatabase
 import com.xfhy.learnkotlin.jetpack.viewmodel.JetpackViewModel
 import com.xfhy.learnkotlin.jetpack.viewmodel.JetpackViewModelFactory
+import com.xfhy.learnkotlin.jetpack.viewmodel.User
 import kotlinx.android.synthetic.main.activity_jetpack.*
+import kotlin.concurrent.thread
 
 class JetpackActivity : AppCompatActivity() {
 
@@ -56,6 +59,34 @@ class JetpackActivity : AppCompatActivity() {
             tvInfoText.text = user.firstName
         }
 
+        val userDao = AppDatabase.getDatabase(this).userDao()
+        val user1 = User("Tom", "Bda", 18)
+        val user2 = User("Tom", "Hands", 18)
+        btnAddData.setOnClickListener {
+            thread {
+                user1.id = userDao.insertUser(user1)
+                user2.id = userDao.insertUser(user2)
+            }
+        }
+        btnUpdate.setOnClickListener {
+            thread {
+                user1.age = 19
+                userDao.updateUser(user1)
+            }
+        }
+        btnDelete.setOnClickListener {
+            thread {
+                userDao.deleteUserByLastName("Bda")
+            }
+        }
+        btnQueryData.setOnClickListener {
+            thread {
+                val loadAllUsers = userDao.loadAllUsers()
+                runOnUiThread {
+                    tvInfoText.text = loadAllUsers.joinToString()
+                }
+            }
+        }
     }
 
     override fun onPause() {

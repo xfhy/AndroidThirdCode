@@ -1,40 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context=".jetpack.JetpackActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvInfoText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        tools:text="0" />
-
-    <Button
-        android:id="@+id/btnPlusOne"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plus One"
-        android:textAllCaps="false" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".jetpack.JetpackActivity">
 
-    <Button
-        android:id="@+id/btnClear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clear"
-        android:textAllCaps="false" />
+        <TextView
+            android:id="@+id/tvInfoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            tools:text="0" />
 
-    <Button
-        android:id="@+id/btnGetUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Get User (switchMap)"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btnPlusOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plus One"
+            android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:textAllCaps="false" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnGetUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get User (switchMap)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnAddData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Data"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Data"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Data"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnQueryData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Query Data"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>
