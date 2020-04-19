@@ -50,9 +50,16 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
 
+        //更新时  需要建表
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("create table Book(id integer primary key autoincrement not null,name text not null,pages integer not null)")
+            }
+        }
+        //更新时  需要加字段
+        val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("alter table Book add column author text not null default 'unknown'")
             }
         }
 
@@ -68,7 +75,7 @@ abstract class AppDatabase : RoomDatabase() {
                 AppDatabase::class.java,
                 "app_database"
             )
-                .addMigrations(MIGRATION_1_2)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                 .build().apply { instance = this }
         }
 
