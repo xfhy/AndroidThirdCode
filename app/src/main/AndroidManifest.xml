@@ -13,8 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/noActionBarStyle"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".material.DrawerLayoutActivity"
-            android:label="DrawerLayout"/>
+        <activity
+            android:name=".material.CollapsingToolbarLayoutActivity"
+            android:theme="@style/FruitActivityTheme" />
+        <activity
+            android:name=".material.DrawerLayoutActivity"
+            android:label="DrawerLayout" />
         <activity
             android:name=".material.MaterialHomeActivity"
             android:label="Fruits" />

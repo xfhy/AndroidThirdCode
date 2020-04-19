@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--AppBarLayout必须是CoordinatorLayout的布局,而CollapsingToolbarLayout又必须是AppBarLayout的直接子布局-->
+
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
