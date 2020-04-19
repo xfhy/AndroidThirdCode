@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
  * Create time : 2020-04-19 14:47
  * Description :
  */
-class JetpackViewModel : ViewModel() {
+class JetpackViewModel(countReserved: Int) : ViewModel() {
 
-    var counter = 0
+    var counter = countReserved
 
 }

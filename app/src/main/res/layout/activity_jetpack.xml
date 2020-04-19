@@ -22,4 +22,11 @@
         android:text="Plus One"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:textAllCaps="false" />
+
 </LinearLayout>
