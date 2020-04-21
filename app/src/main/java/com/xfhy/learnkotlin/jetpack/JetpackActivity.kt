@@ -7,13 +7,18 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
+import androidx.work.OneTimeWorkRequest
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.xfhy.learnkotlin.R
 import com.xfhy.learnkotlin.jetpack.lifecycles.MyObserver
 import com.xfhy.learnkotlin.jetpack.viewmodel.AppDatabase
 import com.xfhy.learnkotlin.jetpack.viewmodel.JetpackViewModel
 import com.xfhy.learnkotlin.jetpack.viewmodel.JetpackViewModelFactory
 import com.xfhy.learnkotlin.jetpack.viewmodel.User
+import com.xfhy.learnkotlin.jetpack.workmanager.SimpleWorker
 import kotlinx.android.synthetic.main.activity_jetpack.*
+import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
 
 class JetpackActivity : AppCompatActivity() {
@@ -87,6 +92,16 @@ class JetpackActivity : AppCompatActivity() {
                 }
             }
         }
+
+        btnDoWork.setOnClickListener {
+            //单次任务
+            val request = OneTimeWorkRequest.Builder(SimpleWorker::class.java).build()
+            // 周期性后台任务   最短15分钟
+            val requestManyTime =
+                PeriodicWorkRequest.Builder(SimpleWorker::class.java, 15, TimeUnit.MINUTES).build()
+            WorkManager.getInstance(this).enqueue(request)
+        }
+
     }
 
     override fun onPause() {

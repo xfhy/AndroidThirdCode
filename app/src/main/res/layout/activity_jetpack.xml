@@ -67,5 +67,12 @@
             android:text="Query Data"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btnDoWork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WorkManager DoWork"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 </ScrollView>
